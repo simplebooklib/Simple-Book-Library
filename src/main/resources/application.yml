@@ -1,0 +1,414 @@
+spring:
+  datasource:
+    dataSourceClassName: org.h2.jdbcx.JdbcDataSource
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      id:
+        new_generator_mappings: true
+      show-sql: true
+      ddl-auto: create
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+      hibernate.enable_lazy_load_no_trans:
+    database: H2
+  cache:
+    ehcache:
+      config: classpath:ehcache.xml
+kakao:
+  api:
+    url: https://dapi.kakao.com/v2/search/book
+    rest-key: 63515d480209dae58d0b7478fcb62e08
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor: DEBUG
+    # org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+book-category:
+  categories:
+    -
+      cat-name: 국내도서
+      sub-cat-name: 소설
+      cat-no: 1
+    -
+      cat-name: 국내도서
+      sub-cat-name: 시/에세이
+      cat-no: 3
+    -
+      cat-name: 국내도서
+      sub-cat-name: 인문
+      cat-no: 5
+    -
+      cat-name: 국내도서
+      sub-cat-name: 가정/생활
+      cat-no: 7
+    -
+      cat-name: 국내도서
+      sub-cat-name: 요리
+      cat-no: 8
+    -
+      cat-name: 국내도서
+      sub-cat-name: 건강
+      cat-no: 9
+    -
+      cat-name: 국내도서
+      sub-cat-name: 취미/스포츠
+      cat-no: 11
+    -
+      cat-name: 국내도서
+      sub-cat-name: 경제/경영
+      cat-no: 13
+    -
+      cat-name: 국내도서
+      sub-cat-name: 자기계발
+      cat-no: 15
+    -
+      cat-name: 국내도서
+      sub-cat-name: 정치/사회
+      cat-no: 17
+    -
+      cat-name: 국내도서
+      sub-cat-name: 정부간행물
+      cat-no: 18
+    -
+      cat-name: 국내도서
+      sub-cat-name: 역사/문화
+      cat-no: 19
+    -
+      cat-name: 국내도서
+      sub-cat-name: 종교
+      cat-no: 21
+    -
+      cat-name: 국내도서
+      sub-cat-name: 예술/대중문화
+      cat-no: 23
+    -
+      cat-name: 국내도서
+      sub-cat-name: 중/고등학습
+      cat-no: 25
+    -
+      cat-name: 국내도서
+      sub-cat-name: 기술/공학
+      cat-no: 26
+    -
+      cat-name: 국내도서
+      sub-cat-name: 외국어
+      cat-no: 27
+    -
+      cat-name: 국내도서
+      sub-cat-name: 과학
+      cat-no: 29
+    -
+      cat-name: 국내도서
+      sub-cat-name: 취업/수험서
+      cat-no: 31
+    -
+      cat-name: 국내도서
+      sub-cat-name: 여행/기행
+      cat-no: 32
+    -
+      cat-name: 국내도서
+      sub-cat-name: 컴퓨터/IT
+      cat-no: 33
+    -
+      cat-name: 국내도서
+      sub-cat-name: 잡지
+      cat-no: 35
+    -
+      cat-name: 국내도서
+      sub-cat-name: 사전
+      cat-no: 37
+    -
+      cat-name: 국내도서
+      sub-cat-name: 청소년
+      cat-no: 38
+    -
+      cat-name: 국내도서
+      sub-cat-name: 초등참고서
+      cat-no: 39
+    -
+      cat-name: 국내도서
+      sub-cat-name: 유아
+      cat-no: 41
+    -
+      cat-name: 국내도서
+      sub-cat-name: 아동
+      cat-no: 42
+    -
+      cat-name: 국내도서
+      sub-cat-name: 어린이영어
+      cat-no: 45
+    -
+      cat-name: 국내도서
+      sub-cat-name: 만화
+      cat-no: 47
+    -
+      cat-name: 국내도서
+      sub-cat-name: 대학교재
+      cat-no: 50
+    -
+      cat-name: 국내도서
+      sub-cat-name: 어린이전집
+      cat-no: 51
+    -
+      cat-name: 국내도서
+      sub-cat-name: 한국소개도서
+      cat-no: 53
+    -
+      cat-name: e북
+      sub-cat-name: 소설
+      cat-no: 901
+    -
+      cat-name: e북
+      sub-cat-name: 장르소설
+      cat-no: 902
+    -
+      cat-name: e북
+      sub-cat-name: 시/에세이
+      cat-no: 903
+    -
+      cat-name: e북
+      sub-cat-name: 경제/경영
+      cat-no: 904
+    -
+      cat-name: e북
+      sub-cat-name: 자기계발
+      cat-no: 905
+    -
+      cat-name: e북
+      sub-cat-name: 인문
+      cat-no: 906
+    -
+      cat-name: e북
+      sub-cat-name: 정치/사회
+      cat-no: 907
+    -
+      cat-name: e북
+      sub-cat-name: 로맨스/무협/판타지
+      cat-no: 908
+    -
+      cat-name: e북
+      sub-cat-name: 종교
+      cat-no: 909
+    -
+      cat-name: e북
+      sub-cat-name: 예술/대중문화
+      cat-no: 910
+    -
+      cat-name: e북
+      sub-cat-name: 가정/생활
+      cat-no: 911
+    -
+      cat-name: e북
+      sub-cat-name: 건강
+      cat-no: 912
+    -
+      cat-name: e북
+      sub-cat-name: 여행/취미
+      cat-no: 913
+    -
+      cat-name: e북
+      sub-cat-name: 청소년
+      cat-no: 914
+    -
+      cat-name: e북
+      sub-cat-name: 학습/수험서
+      cat-no: 915
+    -
+      cat-name: e북
+      sub-cat-name: 유아
+      cat-no: 916
+    -
+      cat-name: e북
+      sub-cat-name: 아동
+      cat-no: 917
+    -
+      cat-name: e북
+      sub-cat-name: 외국어/사전
+      cat-no: 918
+    -
+      cat-name: e북
+      sub-cat-name: 과학
+      cat-no: 919
+    -
+      cat-name: e북
+      sub-cat-name: 컴퓨터/IT
+      cat-no: 920
+    -
+      cat-name: e북
+      sub-cat-name: 잡지
+      cat-no: 921
+    -
+      cat-name: e북
+      sub-cat-name: 만화
+      cat-no: 922
+    -
+      cat-name: e북
+      sub-cat-name: 외국도서
+      cat-no: 923
+    -
+      cat-name: e북
+      sub-cat-name: 무료eBook
+      cat-no: 924
+    -
+      cat-name: e북
+      sub-cat-name: 개인출판
+      cat-no: 925
+    -
+      cat-name: e북
+      sub-cat-name: 오디오북
+      cat-no: 926
+    -
+      cat-name: e북
+      sub-cat-name: 연재
+      cat-no: 951
+    -
+      cat-name: e북
+      sub-cat-name: eReader Free
+      cat-no: 953
+    -
+      cat-name: 영미도서
+      sub-cat-name: 문학
+      cat-no: 101
+    -
+      cat-name: 영미도서
+      sub-cat-name: 취미/실용/여행
+      cat-no: 103
+    -
+      cat-name: 영미도서
+      sub-cat-name: 생활/요리/건강
+      cat-no: 105
+    -
+      cat-name: 영미도서
+      sub-cat-name: 예술/건축
+      cat-no: 107
+    -
+      cat-name: 영미도서
+      sub-cat-name: 인문/사회
+      cat-no: 109
+    -
+      cat-name: 영미도서
+      sub-cat-name: 경제/경영
+      cat-no: 111
+    -
+      cat-name: 영미도서
+      sub-cat-name: 과학/기술
+      cat-no: 113
+    -
+      cat-name: 영미도서
+      sub-cat-name: 아동
+      cat-no: 115
+    -
+      cat-name: 영미도서
+      sub-cat-name: 한국관련도서
+      cat-no: 117
+    -
+      cat-name: 영미도서
+      sub-cat-name: NON_BOOK
+      cat-no: 119
+    -
+      cat-name: 영미도서
+      sub-cat-name: UMI
+      cat-no: 120
+    -
+      cat-name: 영미도서
+      sub-cat-name: ELT/영어교재
+      cat-no: 181
+    -
+      cat-name: 영미도서
+      sub-cat-name: 어린이영어
+      cat-no: 183
+    -
+      cat-name: 영미도서
+      sub-cat-name: 대학교재
+      cat-no: 191
+    -
+      cat-name: 영미도서
+      sub-cat-name: 중국관련도서
+      cat-no: 194
+    -
+      cat-name: 일본도서
+      sub-cat-name: 일서메인
+      cat-no: 239
+    -
+      cat-name: 일본도서
+      sub-cat-name: 잡지
+      cat-no: 241
+    -
+      cat-name: 일본도서
+      sub-cat-name: 엔터테인먼트
+      cat-no: 243
+    -
+      cat-name: 일본도서
+      sub-cat-name: 만화
+      cat-no: 245
+    -
+      cat-name: 일본도서
+      sub-cat-name: 문학
+      cat-no: 247
+    -
+      cat-name: 일본도서
+      sub-cat-name: 라이트노벨
+      cat-no: 249
+    -
+      cat-name: 일본도서
+      sub-cat-name: 문고(포켓북)
+      cat-no: 251
+    -
+      cat-name: 일본도서
+      sub-cat-name: 신서(포켓북)
+      cat-no: 253
+    -
+      cat-name: 일본도서
+      sub-cat-name: 아동
+      cat-no: 255
+    -
+      cat-name: 일본도서
+      sub-cat-name: 실용서/예술
+      cat-no: 257
+    -
+      cat-name: 일본도서
+      sub-cat-name: 인문/사회
+      cat-no: 259
+    -
+      cat-name: 일본도서
+      sub-cat-name: 자연/기술과학
+      cat-no: 261
+    -
+      cat-name: 일본도서
+      sub-cat-name: 어학/학습/사전
+      cat-no: 263
+    -
+      cat-name: 일본도서
+      sub-cat-name: 문구/멀티/기타
+      cat-no: 264
+    -
+      cat-name: 일본도서
+      sub-cat-name: 중국관련도서
+      cat-no: 267
+    -
+      cat-name: 프랑스도서
+      sub-cat-name: 프랑스종합
+      cat-no: 486
+    -
+      cat-name: 독일도서
+      sub-cat-name: 독일종합
+      cat-no: 588
+    -
+      cat-name: 스페인도서
+      sub-cat-name: 스페인종합
+      cat-no: 690
+    -
+      cat-name: 미분류
+      sub-cat-name: 미분류
+      cat-no: 0
+
