@@ -102,7 +102,7 @@
                 url: "/history",
                 success: function(data) {
                     var searchHistoryBody = $('#searchHistoryBody');
-                    searchHistoryBody.remove('tr');
+                    searchHistoryBody.find('tr').remove();
                     for (var i = 0; i < data.length; i++) {
                         var item = data[i];
                         var url = item['url'];
