@@ -10,6 +10,11 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Optional;
+
+import static com.library.config.CategoryProperty.Category;
+import static com.library.search.SearchRequest.Sort;
+import static com.library.search.SearchRequest.Target;
 
 /**
  * 카카오 책검색 API를 이용한 검색
@@ -35,11 +40,11 @@ public class KakaoBookSearcher implements BookSearcher<SearchRequest, SearchResp
 	public SearchResponse search(SearchRequest input) {
 		URI uri = UriComponentsBuilder.fromUriString(url)
 				.queryParam("query", input.getQuery())
-				.queryParam("sort", input.getSort())
 				.queryParam("page", input.getPage())
 				.queryParam("size", input.getSize())
-				.queryParam("target", input.getTarget())
-				.queryParam("category", input.getCategory())
+				.queryParam("sort", Optional.ofNullable(input.getSort()).map(Sort::getCode).orElse(null))
+				.queryParam("target", Optional.ofNullable(input.getTarget()).map(Target::getCode).orElse(null))
+				.queryParam("category", Optional.ofNullable(input.getCategory()).map(Category::getCatNo).orElse(null))
 				.build().toUri();
 
 		return restTemplate.exchange(uri, HttpMethod.GET, httpEntity, SearchResponse.class).getBody();
@@ -50,7 +55,7 @@ public class KakaoBookSearcher implements BookSearcher<SearchRequest, SearchResp
 	public SearchResponse.Document getBookInfo(String id) {
 		SearchRequest searchRequest = new SearchRequest();
 		searchRequest.setQuery(id);
-		searchRequest.setTarget(SearchRequest.Target.ISBN);
+		searchRequest.setTarget(Target.ISBN);
 		return search(searchRequest).getDocuments().get(0);
 	}
 
