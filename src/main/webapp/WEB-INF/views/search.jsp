@@ -66,7 +66,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="catNo">중분류</label>
                 </div>
-                <form:select id="catNo" path="catNo" cssClass="custom-select">
+                <form:select id="catNo" path="catNo" data="${bookSearchModel.catNo}" cssClass="custom-select">
                     <form:option label="선택" value=""/>
                 </form:select>
             </div>
@@ -189,8 +189,11 @@
                         catNoElem.find('option:not(:first)').remove();
                         // 신규 옵션 추가
                         $.each(data[catName], function (key, value) {
-                            catNoElem.append($("<option></option>")
-                                    .attr("value", value.catNo).text(value.subCatName));
+                            var opt = $("<option></option>").attr("value", value.catNo).text(value.subCatName);
+                            if (catNoElem.attr('data') == value.catNo) {
+                                opt.attr('selected', "selected");
+                            }
+                            catNoElem.append(opt);
                         });
                     }
                 }

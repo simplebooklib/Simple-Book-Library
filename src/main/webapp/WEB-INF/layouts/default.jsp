@@ -25,7 +25,7 @@
     </script>
     <style type="text/css">
         .modal-lg {
-            max-width: 800px !important;
+            max-width: 900px !important;
         }
     </style>
     <sitemesh:write property="head"/>
@@ -102,6 +102,7 @@
                 url: "/history",
                 success: function(data) {
                     var searchHistoryBody = $('#searchHistoryBody');
+                    searchHistoryBody.remove('tr');
                     for (var i = 0; i < data.length; i++) {
                         var item = data[i];
                         var url = item['url'];
