@@ -16,8 +16,8 @@ public class BookMarkRepositoryTest {
 	@Autowired BookMarkRepository bookMarkRepository;
 
 	@Test
-	public void 북마크_카운트_조회() throws Exception {
-		bookMarkRepository.countByAcctNo(10);
+	public void findByAcctNoAndIsbn() throws Exception {
+		bookMarkRepository.findByAcctNoAndIsbn(10, "");
 	}
 
 }

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Simple Book Library</title>
-    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <style type="text/css">
         html,
         body {

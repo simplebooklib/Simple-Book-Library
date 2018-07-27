@@ -48,9 +48,6 @@ public class BookMarkService {
 	 * @return 북마크 정보
 	 */
 	public Page<Document> findByAcctNo(int acctNo, Pageable pageable) {
-
-		long count = bookMarkRepository.countByAcctNo(acctNo);
-
 		BookMark bookMarkParam = new BookMark();
 		bookMarkParam.setAcctNo(acctNo);
 		Page<BookMark> bookMarks = bookMarkRepository.findAll(Example.of(bookMarkParam), pageable);
@@ -58,7 +55,8 @@ public class BookMarkService {
 		List<Document> documents = bookMarks.getContent().stream()
 				.map(bm -> bookSearcher.getBookInfo(bm.getIsbn()))
 				.collect(Collectors.toList());
-		return new PageImpl<>(documents, pageable, count);
+
+		return new PageImpl<>(documents, pageable, bookMarks.getTotalElements());
 	}
 
 	/**
